@@ -1,0 +1,113 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="{% static 'css\login.css'%}">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.css' %}" media="all">
+    <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>
+
+    <!-- Fontawesome CDN Link -->
+
+</head>
+
+<body>
+
+    
+    <div class="container">
+
+
+        
+
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+
+                <form name="" action="addreg" method="POST">
+                    {% csrf_token %}
+
+                    <h1>Create Account</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your email for registration</span>
+                    <input type="text" placeholder="Name" name="name" />
+                    <input type="email" placeholder="Email" name="email" />
+                    <input type="text" placeholder="Number" name="phone_number" pattern="[0-9]{10}" />
+                    <input type="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must Contain 8 characters with caps , small letters and number " name="password" />
+
+                    <button class="buttonClass" type="submit">Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="addlogin" method="POST">
+
+                    {% csrf_token %}
+                    <h1>Sign in</h1>
+                    <div class="social-container">
+                        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your account</span>
+                    <input type="email" placeholder="Email" name="email" />
+                    <input type="password" placeholder="Password" name="password" />
+                    <!--a href="#">Forgot your password?</a-->
+                    <button type="submit">Sign In</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Welcome Back!</h1>
+                        <p>To keep connected with us please login with your personal info</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                        <a href="/">
+                            <p style="color : white;">Return to Home Page</p>
+                        </a>
+
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Enter your personal details and start journey with us</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                        <a href="/">
+                            <p style="color : white;">Return to Home Page</p>
+                        </a>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success'%}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'info' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'warning' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% elif message.tags == 'error' %}
+                <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="{% static 'js\loginAndSignup.js' %}"></script>
+</body>
+
+</html>

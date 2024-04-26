@@ -1,0 +1,188 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page With Light/Dark Mode</title>
+    <link rel="stylesheet" href="{% static 'css/landingstyle.css' %}" />
+	
+	<style>
+	.navbar {
+  
+  padding: 10px 0; /* Adjust padding as needed */
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+.navbar ul li a {
+  display: inline-block;
+  color: black; /* Change this to your preferred text color */
+  text-decoration: none;
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.navbar ul li a:hover {
+  background-color: #64bcf4;; /* Change this to your preferred hover background color */
+  border-radius: 16px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+
+.btn-box {
+      display: inline-block; /* Ensure buttons are displayed horizontally */
+      margin-bottom: 10px; /* Adjust spacing between buttons */
+    }
+    
+    .btn1 {
+      display: inline-block;
+      width: 300px; /* Set a fixed width for all buttons */
+      padding: 35px 45px; /* Adjust padding to increase button size */
+      font-size: 18px; /* Adjust font size */
+      text-align: center; /* Center-align button text */
+      text-decoration: none; /* Remove default underline */
+      border: 1px solid #ccc; /* Add border for visual distinction */
+      border-radius: 5px; /* Add rounded corners */
+    }
+	</style>
+	
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img src="{% static 'img\shape.png' %}" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <img src="{% static 'img\music.png' %}" alt="Logo" />
+              <h3>EmoMusic </h3>
+            </div>
+
+<!--
+            <div class="links">
+              <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+            </div> -->
+			
+			<nav class="navbar">
+			  <ul> 
+                 <li><a href="landing" class="">Home</a></li>
+				<li><a href="http://127.0.0.1:8000/addfeed" class="">Feedback</a></li>
+        <li><a href="http://127.0.0.1:8000/rateee" class="">Rating</a></li>
+
+				<li><a href="http://127.0.0.1:8000/start" class="">Get Started</a></li>
+				<li><a href="http://127.0.0.1:8000/logout" class="">Logout</a></li>
+				
+				<!-- Add more navigation links here if needed -->
+			  </ul>
+			</nav>
+
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="showcase-area">
+          <div class="container">
+            <div class="img-box">
+            
+                <img src="{% static 'img/2401770.jpg' %}" alt="">
+              </div>
+              
+            <div class="left" style="margin-left: 90px;">
+             <div class="big-title">
+                <h1>Emotion</h1>
+
+
+                <div class="col-md-6">
+                    <div class="detail-box">
+                      <div class="heading_container">
+                          <div class="btn-box">
+                              <a href="upload" class="btn1">
+                                Upload  <i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                              </a>
+          
+                            </div>
+                      </div><br><br><br>
+                      <div class="btn-box">
+                          <a href="startwebcam" class="btn1">
+                            Real Time  <i class="fa fa-video-camera" aria-hidden="true"></i> 
+                          </a>
+          
+                        </div>
+          <br><br>
+          <br><br>
+                        <div class="btn-box">
+                          <a href="instruction" class="btn1">
+                            Instructions <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                          </a>
+          
+                        </div>
+                      
+                    </div>
+                  </div>
+              </div>
+              
+				
+				
+            </div>
+
+          </div>
+        </div>
+
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div> 
+    </main>
+    <!-- JavaScript Files -->
+
+    <script src="{% static 'https://kit.fontawesome.com/a81368914c.js' %}"></script>
+    <script src="{% static 'js\landingapp.js' %}"></script>
+  </body>
+</html>
+{% endblock %}

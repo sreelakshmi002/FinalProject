@@ -1,0 +1,175 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page With Light/Dark Mode</title>
+    <link rel="stylesheet" href="{% static 'css/landingstyle.css' %}" />
+	
+	<style>
+	.navbar {
+  
+  padding: 10px 0; /* Adjust padding as needed */
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+.navbar ul li a {
+  display: inline-block;
+  color: black; /* Change this to your preferred text color */
+  text-decoration: none;
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.navbar ul li a:hover {
+  background-color: #64bcf4;; /* Change this to your preferred hover background color */
+  border-radius: 16px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+	</style>
+	
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img src="{% static 'img\shape.png' %}" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <img src="{% static 'img\music.png' %}" alt="Logo" />
+              <h3>EmoMusic </h3>
+            </div>
+
+<!--
+            <div class="links">
+              <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+            </div> -->
+			
+			<nav class="navbar">
+			  <ul>
+                <li><a href="landing" class="">Home</a></li>
+				<li><a href="http://127.0.0.1:8000/addfeed" class="">Feedback</a></li>
+				<li><a href="http://127.0.0.1:8000/rateee" class="">Rating</a></li>
+				<li><a href="http://127.0.0.1:8000/start" class="">Get Started</a></li>
+				<li><a href="http://127.0.0.1:8000/logout" class="">Logout</a></li>
+				
+				<!-- Add more navigation links here if needed -->
+			  </ul>
+			</nav>
+
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="showcase-area">
+          <div class="container">
+            <div class="left">
+             <div class="big-title">
+              </div>
+			  
+              <div class="heading_container">
+                <h2>
+                    INSTRUCTIONS
+                </h2>
+              </div><br><br>
+              <div class="photo-container">
+                <div>
+                  <h2>Snap a Photo:</h2> 
+                  <p>- Upload a picture or use your camera for instant emotion analysis.</p>
+                </div>
+                <i class="fa fa-camera" aria-hidden="true"></i>
+              </div><br>
+              <div class="photo-container">
+                <div>
+                  <h2>Face Magic:</h2> 
+                  <p>- Our tech maps your face, pinpointing key features.</p>
+                </div>
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </div><br>
+              <div class="photo-container">
+                <div>
+                  <h2>Decode Emotions:</h2> 
+                  <p>- Smart algorithms analyze expressions, decoding a range of emotions.</p>
+                </div>
+                <i class="fa fa-sitemap" aria-hidden="true"></i>
+              </div><br>
+              <div class="photo-container">
+                <div>
+                  <h2>Privacy Priority:</h2> 
+                  <p>- Your privacy and data security are our top concerns</p>
+                </div>
+                <i class="fa fa-lock" aria-hidden="true"></i>
+              </div><br>
+              <div class="photo-container">
+                <div>
+                  <h2>Grow with Us:</h2> 
+                  <p>- Enhance emotional intelligence and self-awareness effortlessly.</p>
+                </div>
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+              </div>
+				
+				
+            </div>
+
+          </div>
+        </div>
+
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div> 
+    </main>
+    <!-- JavaScript Files -->
+
+    <script src="{% static 'https://kit.fontawesome.com/a81368914c.js' %}"></script>
+    <script src="{% static 'js\landingapp.js' %}"></script>
+  </body>
+</html>
+{% endblock %}

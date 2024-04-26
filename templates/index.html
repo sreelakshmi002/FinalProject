@@ -1,0 +1,151 @@
+
+
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page With Light/Dark Mode</title>
+    <link rel="stylesheet" href="{% static 'css/landingstyle.css' %}" />
+	
+	<style>
+	.navbar {
+  
+  padding: 10px 0; /* Adjust padding as needed */
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline;
+}
+
+.navbar ul li a {
+  display: inline-block;
+  color: black; /* Change this to your preferred text color */
+  text-decoration: none;
+  padding: 10px 20px; /* Adjust padding as needed */
+}
+
+.navbar ul li a:hover {
+  background-color: #64bcf4;; /* Change this to your preferred hover background color */
+  border-radius: 16px;
+}
+
+	</style>
+	
+  </head>
+  <body>
+    <main>
+      <div class="big-wrapper light">
+        <img src="{% static 'img\shape.png' %}" alt="" class="shape" />
+
+        <header>
+          <div class="container">
+            <div class="logo">
+              <img src="{% static 'img\music.png' %}" alt="Logo" />
+              <h3>EmoMusic </h3>
+            </div>
+
+<!--
+            <div class="links">
+              <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+			  <ul>
+                <li><a href="/loginAndRegister" class="btn">Sign up</a></li>
+              </ul>
+            </div> -->
+			
+			<nav class="navbar">
+			  <ul>
+          {% if request.session.details %}
+				<li><a href="landing" class="">Home</a></li>
+				<!--li><a href="http://127.0.0.1:8000/loginAndRegister" class="">About</a></li-->
+        <li><a href="http://127.0.0.1:8000/addmusic" class="">Music</a></li>
+        <li><a href="http://127.0.0.1:8000/viewrating" class="">Rating</a></li>
+        <li><a href="http://127.0.0.1:8000/viewfeed" class="">Feedback</a></li>
+
+				<li><a href="http://127.0.0.1:8000/logout" class="">Logout</a></li>
+
+        {% elif request.session.uid %}
+        <li><a href="landing" class="">Home</a></li>
+				<li><a href="http://127.0.0.1:8000/addfeed" class="">Feedback</a></li>
+        <li><a href="http://127.0.0.1:8000/rateee" class="">Rating</a></li>
+
+				<li><a href="http://127.0.0.1:8000/start" class="">Get Started</a></li>
+				<li><a href="http://127.0.0.1:8000/logout" class="">Logout</a></li>
+{% else %}
+
+<li><a href="index" class="">Home</a></li>
+<li><a href="#index.html" class="">About</a></li>
+<li><a href="http://127.0.0.1:8000/loginAndSignup" class="btn">Sign up</a></li>
+
+        {% endif %}
+				<!-- Add more navigation links here if needed -->
+			  </ul>
+			</nav>
+
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="showcase-area">
+          <div class="container">
+            <div class="left">
+              <div class="big-title">
+                <h1>Future is here,</h1>
+                <h1>Start Exploring now.</h1>
+              </div>
+              <p class="text">
+                Choose us and we'll choose the music for you! <br/>
+                Login and get going!
+              </p>
+              <div class="cta">
+                <a href="" class="btn">Get started</a>
+              </div>
+            </div>
+
+            <div class="right">
+              <img src="{% static 'img\person.png' %}" alt="Person Image" class="person" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-area">
+          <div class="container">
+            <button class="toggle-btn">
+              <i class="far fa-moon"></i>
+              <i class="far fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div> 
+    </main>
+    <!-- JavaScript Files -->
+
+    <script src="{% static 'https://kit.fontawesome.com/a81368914c.js' %}"></script>
+    <script src="{% static 'js\landingapp.js' %}"></script>
+  </body>
+</html>
+
+
+{% endblock %}
